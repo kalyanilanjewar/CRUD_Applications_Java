@@ -16,10 +16,12 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 	
+	//Method to create an employee
 	public String createEmployee(EmployeeDto employeeDto) 
 	{
 		try 
 		{
+			//Creating an employee object from the employeeDto
 			Employee employee = Employee.builder()
 					            .empName(employeeDto.getEmpName())
 					            .salary(employeeDto.getSalary())
@@ -35,7 +37,7 @@ public class EmployeeService {
 		return "Employee created successfully";
 	}
 	
-	
+	//Method to get all employees
 	public List<Employee> getEmployee(){
 		List<Employee> employeeList = new ArrayList<>();
 		try {
@@ -46,6 +48,7 @@ public class EmployeeService {
 		return employeeList;
 	}
 	
+	//Method to get employee by id
 	public String deleteEmployee(String id) {
 		try {
 			employeeRepository.deleteById(id);
