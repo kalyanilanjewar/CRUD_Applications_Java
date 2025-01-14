@@ -10,6 +10,9 @@ import com.simpleJavaCrud.crud.dto.EmployeeDto;
 import com.simpleJavaCrud.crud.model.Employee;
 import com.simpleJavaCrud.crud.repository.EmployeeRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j //Lombok annotation to generate logger in the class
 @Service
 public class EmployeeService {
 	
@@ -34,6 +37,7 @@ public class EmployeeService {
 			return "Failed to create employee";
 		}
 		
+		log.info("Employee created successfully");
 		return "Employee created successfully";
 	}
 	
@@ -45,6 +49,8 @@ public class EmployeeService {
 		}catch(Exception e) {
 			
 		}
+		
+		log.info("Employee retrieved successfully");
 		return employeeList;
 	}
 	
@@ -55,6 +61,8 @@ public class EmployeeService {
 		}catch(Exception e) {
 			return "Failed to delete employee";
 		}
+		
+		log.info("Employee deleted successfully");
 		return "Employee deleted successfully";
 	}
 
@@ -71,6 +79,8 @@ public class EmployeeService {
 		}catch(Exception e) {
 			return "Failed to update employee";
 		}
+		
+		log.info("Employee updated successfully");
 		return "Employee updated successfully";
 	}
 
