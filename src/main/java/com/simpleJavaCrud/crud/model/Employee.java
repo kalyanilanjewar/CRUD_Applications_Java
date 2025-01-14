@@ -19,6 +19,10 @@ public class Employee {
 	
 	@Field(name = "EMPLOYEE_NAME")
 	private String empName;
+	
+	@Field(name = "LOCATION")
 	private String location;
+	
+	@Field(name = "SALARY")
 	private BigDecimal salary;
 }
