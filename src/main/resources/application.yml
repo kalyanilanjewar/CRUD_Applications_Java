@@ -1,0 +1,12 @@
+#spring.application.name=crud_demo
+
+#spring.data.mongodb.uri=mongodb://localhost:27017/crud_demo
+
+spring:
+    application:
+      name: crud_demo
+       
+    data:
+      mongodb:
+        uri: mongodb://localhost:27017/crud_demo
+
