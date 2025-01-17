@@ -1,5 +1,6 @@
 package com.simpleJavaCrud.crud.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +27,12 @@ public class EmployeeService {
 		{
 			//Creating an employee object from the employeeDto
 			Employee employee = Employee.builder()
+//					            .createdDate(employeeDto.getCreatedDate())
 					            .empName(employeeDto.getEmpName())
 					            .salary(employeeDto.getSalary())
 					            .location(employeeDto.getLocation())
 					            .build();
+			employee.setCreatedDate(LocalDateTime.now());
 			employeeRepository.save(employee);
 		}
 		catch(Exception e) 
@@ -75,6 +78,7 @@ public class EmployeeService {
 					           .location(employeeDto.getLocation())
 					           .salary(employeeDto.getSalary())
 					           .build();
+			employee.setModifiedDate(LocalDateTime.now());
 			employeeRepository.save(employee);//This will update the employee in the database with the new values
 		}catch(Exception e) {
 			return "Failed to update employee";
