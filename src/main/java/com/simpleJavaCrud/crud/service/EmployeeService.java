@@ -27,7 +27,6 @@ public class EmployeeService {
 		{
 			//Creating an employee object from the employeeDto
 			Employee employee = Employee.builder()
-//					            .createdDate(employeeDto.getCreatedDate())
 					            .empName(employeeDto.getEmpName())
 					            .salary(employeeDto.getSalary())
 					            .location(employeeDto.getLocation())
@@ -73,10 +72,10 @@ public class EmployeeService {
 	public String updateEmployee(EmployeeDto employeeDto) {
 		try {
 			Employee employee = Employee.builder()
-					           .id(employeeDto.getId())
-					           .empName(employeeDto.getEmpName())
-					           .location(employeeDto.getLocation())
-					           .salary(employeeDto.getSalary())
+					           .id(employeeDto.getId() != null ? employeeDto.getId() : null)
+					           .empName(employeeDto.getEmpName() != null ? employeeDto.getEmpName() : null)
+					           .location(employeeDto.getLocation() != null ? employeeDto.getLocation() : null)
+					           .salary(employeeDto.getSalary() != null ? employeeDto.getSalary() : null)
 					           .build();
 			employee.setModifiedDate(LocalDateTime.now());
 			employeeRepository.save(employee);//This will update the employee in the database with the new values
