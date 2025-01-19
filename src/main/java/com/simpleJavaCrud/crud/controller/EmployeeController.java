@@ -34,21 +34,21 @@ public class EmployeeController {
 		return employeeService.createEmployee(employeeDto); //This will return the response from the service method (createEmployee)
 	}
 	
-	@GetMapping("/get/employee")
+	@GetMapping("/getEmployee")
 	@ResponseStatus(HttpStatus.OK)//HttpStatus.OK will actually send 200 status code when you hit this API 
 	public List<Employee> getEmployee(){
 		log.info("Inside /get/employee API");
 		return employeeService.getEmployee(); //This will return the response from the service method (getEmployee)
 	}
 	
-	@GetMapping("/delete/employee")
+	@GetMapping("/deleteEmployeeById")
 	@ResponseStatus(HttpStatus.OK) //HttpStatus.OK will actually send 200 status code when you hit this API 
 	public String deleteEmployee(@RequestParam String id) {
 		log.info("Inside /delete/employee API");
 		return employeeService.deleteEmployee(id); //This will return response from the service method (seleteEmployee)
 	}
 	
-	@PutMapping("update/employee")
+	@PutMapping("/updateEployee")
 	@ResponseStatus(HttpStatus.CREATED) //HttpStatus.CREATED will actually send 201 status code when you will hit this API
 	public String updateEmployee(@RequestBody EmployeeDto employeeDto) {
 		log.info("Inside /update/employee API");
