@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EmployeeService {
 	
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private EmployeeRepository employeeRepository; //This will autowire the employee repository to the service class so that we can use the repository methods in the service class to interact with the database 
 	
 	//Method to create an employee
 	public String createEmployee(EmployeeDto employeeDto) 
@@ -31,8 +31,12 @@ public class EmployeeService {
 					            .salary(employeeDto.getSalary())
 					            .location(employeeDto.getLocation())
 					            .build();
+			
+			//Setting the created date to the current date and time
 			employee.setCreatedDate(LocalDateTime.now());
-			employeeRepository.save(employee);
+			
+			//This will save the employee object in the database
+			employeeRepository.save(employee); 
 		}
 		catch(Exception e) 
 		{
@@ -45,8 +49,10 @@ public class EmployeeService {
 	
 	//Method to get all employees
 	public List<Employee> getEmployee(){
+		//Creating an empty list of employees to store the employees retrieved from the database
 		List<Employee> employeeList = new ArrayList<>();
 		try {
+			//This will return all the employees from the database in the form of a list
 			employeeList = employeeRepository.findAll();
 		}catch(Exception e) {
 			
@@ -59,6 +65,7 @@ public class EmployeeService {
 	//Method to get employee by id
 	public String deleteEmployee(String id) {
 		try {
+			//This will delete the employee from the database with the given id
 			employeeRepository.deleteById(id);
 		}catch(Exception e) {
 			return "Failed to delete employee";
@@ -69,6 +76,7 @@ public class EmployeeService {
 	}
 
 
+	//Method to update employee details by id
 	public String updateEmployee(EmployeeDto employeeDto) {
 		try {
 			Employee employee = Employee.builder()
@@ -77,8 +85,12 @@ public class EmployeeService {
 					           .location(employeeDto.getLocation() != null ? employeeDto.getLocation() : null)
 					           .salary(employeeDto.getSalary() != null ? employeeDto.getSalary() : null)
 					           .build();
+			
+			//Setting the modified date to the current date and time
 			employee.setModifiedDate(LocalDateTime.now());
-			employeeRepository.save(employee);//This will update the employee in the database with the new values
+			
+			//This will update the employee in the database with the new values
+			employeeRepository.save(employee);
 		}catch(Exception e) {
 			return "Failed to update employee";
 		}
