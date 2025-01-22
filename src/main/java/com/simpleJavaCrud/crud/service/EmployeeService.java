@@ -59,7 +59,7 @@ public class EmployeeService {
 		}
 		
 		log.info("Employee retrieved successfully");
-		return employeeList;
+		return employeeList; //Returning the list of employees retrieved from the database
 	}
 	
 	//Method to get employee by id
