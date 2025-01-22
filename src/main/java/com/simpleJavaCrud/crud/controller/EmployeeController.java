@@ -37,22 +37,22 @@ public class EmployeeController {
 	@GetMapping("/getEmployee")
 	@ResponseStatus(HttpStatus.OK)//HttpStatus.OK will actually send 200 status code when you hit this API 
 	public List<Employee> getEmployee(){
-		log.info("Inside /get/employee API");
+		log.info("Inside /getEmployee API");
 		return employeeService.getEmployee(); //This will return the response from the service method (getEmployee)
 	}
 	
 	@GetMapping("/deleteEmployeeById")
 	@ResponseStatus(HttpStatus.OK) //HttpStatus.OK will actually send 200 status code when you hit this API 
 	public String deleteEmployee(@RequestParam String id) {
-		log.info("Inside /delete/employee API");
+		log.info("Inside /deleteEmployeeById API");
 		return employeeService.deleteEmployee(id); //This will return response from the service method (seleteEmployee)
 	}
 	
 	@PutMapping("/updateEployee")
 	@ResponseStatus(HttpStatus.CREATED) //HttpStatus.CREATED will actually send 201 status code when you will hit this API
 	public String updateEmployee(@RequestBody EmployeeDto employeeDto) {
-		log.info("Inside /update/employee API");
+		log.info("Inside /updateEployee API");
 		return employeeService.updateEmployee(employeeDto); //This will return respinse from the service method (updateEmployee))
 	}
-
+	
 }
