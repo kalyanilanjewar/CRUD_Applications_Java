@@ -95,7 +95,7 @@ public class EmployeeService {
 			return "Failed to update employee";
 		}
 		
-		log.info("Employee updated successfully");
+		log.info("Employee updated successfully"); //Logging the success message
 		return "Employee updated successfully";
 	}
 
