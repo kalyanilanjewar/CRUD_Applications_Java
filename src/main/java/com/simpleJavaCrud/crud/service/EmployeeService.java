@@ -96,7 +96,7 @@ public class EmployeeService {
 		}
 		
 		log.info("Employee updated successfully"); //Logging the success message
-		return "Employee updated successfully";
+		return "Employee updated successfully"; //Returning the success message to the controller class
 	}
 
 }
